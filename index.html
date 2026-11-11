@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' https://cdnjs.cloudflare.com 'unsafe-inline'; font-src 'self' https://cdnjs.cloudflare.com; script-src 'self'">
+<title>Hyper Garage KHI</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="app">
+
+  <nav class="nav" aria-label="Main">
+    <a class="brand" data-tab="home" href="#">
+      <span class="brand-mark"><i class="fa-solid fa-car"></i></span>
+      <span class="brand-text"><b>HYPER<em>GARAGE</em></b><small>Karachi mobility hub</small></span>
+    </a>
+    <ul class="nav-list">
+      <li><button class="nav-btn is-active" data-tab="home"><i class="fa-solid fa-house"></i><span>Home</span></button></li>
+      <li><button class="nav-btn" data-tab="services"><i class="fa-solid fa-gears"></i><span>Services</span></button></li>
+      <li><button class="nav-btn" data-tab="products"><i class="fa-solid fa-store"></i><span>Store</span></button></li>
+      <li><button class="nav-btn" data-tab="mechanics"><i class="fa-solid fa-map-location-dot"></i><span>Garages</span></button></li>
+      <li><button class="nav-btn" data-tab="chat"><i class="fa-solid fa-comments"></i><span>Chat</span></button></li>
+      <li><button class="nav-btn" data-tab="booking"><i class="fa-solid fa-calendar-check"></i><span>Book</span></button></li>
+    </ul>
+    <button class="sos" data-tab="mechanics"><i class="fa-solid fa-car-burst"></i><span>Breakdown help</span></button>
+  </nav>
+
+  <div class="shell">
+    <header class="topbar">
+      <h1 id="page-title">Home</h1>
+      <div class="topbar-actions">
+        <button class="icon-btn" id="cart-open" aria-label="Open cart"><i class="fa-solid fa-cart-shopping"></i><span class="badge" id="cart-badge">0</span></button>
+        <a class="icon-btn accent" href="tel:1122" aria-label="Call 1122"><i class="fa-solid fa-phone-volume"></i></a>
+      </div>
+    </header>
+
+    <main class="content">
+
+      <section id="tab-home" class="view is-active">
+        <div class="hero">
+          <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1200&q=80" alt="Garage with performance car">
+          <div class="hero-body">
+            <span class="pill live">Karachi roadside help is open</span>
+            <h2>Find a trusted mechanic in Karachi, fast</h2>
+            <p>Browse garages by area, decode engine fault codes, book a service and buy parts in one place.</p>
+            <div class="row">
+              <button class="btn primary" data-tab="chat"><i class="fa-solid fa-comments"></i>Ask a mechanic</button>
+              <button class="btn ghost" data-tab="mechanics"><i class="fa-solid fa-location-dot"></i>Find garages</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="home-grid">
+          <article class="panel">
+            <header class="panel-head"><h3><i class="fa-solid fa-gauge-high"></i>Car health</h3><span class="pill ok">Demo values</span></header>
+            <div class="stats">
+              <div class="stat"><small>Engine temp</small><b id="t-temp">89°C</b></div>
+              <div class="stat"><small>Battery</small><b id="t-volt">14.1 V</b></div>
+              <div class="stat"><small>Oil quality</small><b id="t-oil">95%</b></div>
+            </div>
+          </article>
+
+          <article class="panel obd">
+            <header class="panel-head"><h3><i class="fa-solid fa-microchip"></i>Fault code lookup</h3></header>
+            <p class="muted">Enter an OBD-II code such as P0300, P0420 or P0171.</p>
+            <form class="inline-form" id="obd-form">
+              <input id="obd-input" placeholder="P0300" maxlength="6" autocomplete="off" aria-label="OBD-II code">
+              <button class="btn primary" type="submit">Look up</button>
+            </form>
+            <div id="obd-result" class="result" hidden>
+              <div class="result-top"><b id="obd-title"></b><span class="pill" id="obd-sev"></span></div>
+              <p id="obd-desc"></p>
+              <p class="fix" id="obd-fix"></p>
+            </div>
+          </article>
+
+          <article class="panel fuel">
+            <header class="panel-head"><h3><i class="fa-solid fa-gas-pump"></i>Fuel cost</h3><span class="pill">Sample rates</span></header>
+            <div class="stats two">
+              <div class="stat"><small>Petrol / L</small><b>Rs. 278.40</b></div>
+              <div class="stat"><small>Hi-Octane / L</small><b>Rs. 295.10</b></div>
+            </div>
+            <label class="field"><span>Litres to fill</span><input type="number" min="0" id="fuel-liters" placeholder="30"></label>
+            <p class="total">Petrol cost <b id="fuel-total">Rs. 0</b></p>
+          </article>
+
+          <article class="panel shortcuts">
+            <header class="panel-head"><h3>Shortcuts</h3></header>
+            <div class="tiles">
+              <button class="tile" data-tab="services"><i class="fa-solid fa-gears"></i><b>Services</b><small>Oil, tuning, AC</small></button>
+              <button class="tile" data-tab="products"><i class="fa-solid fa-store"></i><b>Parts</b><small>Filters, lights</small></button>
+              <button class="tile" data-tab="mechanics"><i class="fa-solid fa-map-location-dot"></i><b>Garages</b><small>DHA to Nazimabad</small></button>
+              <button class="tile" data-tab="booking"><i class="fa-solid fa-calendar-check"></i><b>Book</b><small>Pick a slot</small></button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="tab-services" class="view"><div id="services-grid" class="list"></div></section>
+
+      <section id="tab-products" class="view">
+        <input class="search" id="product-search" type="search" placeholder="Search parts, filters, detailers" aria-label="Search products">
+        <div id="products-grid" class="cards"></div>
+      </section>
+
+      <section id="tab-mechanics" class="view">
+        <select class="search" id="location-filter" aria-label="Filter by area">
+          <option value="all">All Karachi areas</option>
+          <option value="DHA">DHA &amp; Clifton</option>
+          <option value="Shahrah-e-Faisal">Shahrah-e-Faisal</option>
+          <option value="Gulshan">Gulshan-e-Iqbal</option>
+          <option value="North Nazimabad">North Nazimabad</option>
+        </select>
+        <div id="mechanics-grid" class="cards wide"></div>
+      </section>
+
+      <section id="tab-chat" class="view">
+        <div class="chat">
+          <div class="chat-head"><img id="chat-img" alt=""><div><b id="chat-name">Mechanic</b><small id="chat-status"></small></div><span class="pill ok">Online</span></div>
+          <div class="chat-picker" id="chat-picker"></div>
+          <div class="chat-log" id="chat-log" aria-live="polite"></div>
+          <form class="chat-form" id="chat-form">
+            <input id="chat-input" placeholder="Ask about punctures, oil, AC, prices" autocomplete="off" aria-label="Message">
+            <button class="btn primary" type="submit" aria-label="Send"><i class="fa-solid fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </section>
+
+      <section id="tab-booking" class="view">
+        <form class="panel form" id="booking-form">
+          <h3>Book a service</h3>
+          <label class="field"><span>Your name</span><input id="book-name" required placeholder="Ali Ahmed"></label>
+          <label class="field"><span>Phone number</span><input id="book-phone" type="tel" required placeholder="0300-1234567"></label>
+          <label class="field"><span>Service</span><select id="book-service"></select></label>
+          <label class="field"><span>Car model</span><input id="book-car" required placeholder="Honda Civic"></label>
+          <button class="btn primary block" type="submit">Confirm appointment</button>
+        </form>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<aside class="drawer" id="cart" aria-hidden="true">
+  <div class="drawer-panel">
+    <header><h3><i class="fa-solid fa-cart-shopping"></i>Your cart</h3><button class="icon-btn" id="cart-close" aria-label="Close cart"><i class="fa-solid fa-xmark"></i></button></header>
+    <div class="drawer-body" id="cart-items"></div>
+    <footer><p class="total">Total <b id="cart-total">Rs. 0</b></p><button class="btn primary block" id="checkout">Place order</button></footer>
+  </div>
+</aside>
+
+<div class="toast" id="toast" role="status"></div>
+<script src="js/app.js"></script>
+</body>
+</html>

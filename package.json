@@ -1,0 +1,27 @@
+{
+  "name": "hyper-garage-khi",
+  "version": "1.0.0",
+  "description": "Hyper Garage KHI - Karachi automotive hub desktop app",
+  "main": "main.js",
+  "author": "Hyper Garage KHI",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder",
+    "dist:win": "electron-builder --win",
+    "dist:mac": "electron-builder --mac",
+    "dist:linux": "electron-builder --linux"
+  },
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.0.0"
+  },
+  "build": {
+    "appId": "pk.hypergarage.khi",
+    "productName": "Hyper Garage KHI",
+    "files": ["main.js", "src/**/*", "package.json"],
+    "win": { "target": "nsis" },
+    "mac": { "target": "dmg", "category": "public.app-category.utilities" },
+    "linux": { "target": "AppImage", "category": "Utility" }
+  }
+}
